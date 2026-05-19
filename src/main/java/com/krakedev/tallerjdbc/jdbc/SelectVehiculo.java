@@ -37,7 +37,6 @@ public class SelectVehiculo {
 				boolean disponible = rs.getBoolean("disponible");
 				//placa, marca, modelo, anio, precio, color, disponible
 				log.info("PLACA: "+placa+", MARCA: "+marca+", "+", MODELO: "+modelo+", AÑO: "+anio+", PRECIO: "+precio+", COLOR: "+color+", DISPONIBLE: "+disponible);
-				
 			}
 			log.info("LISTA COMPLETA DE VEHICULOS");
 		} catch (Exception e) {

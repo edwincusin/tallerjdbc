@@ -24,14 +24,14 @@ public class UpdateVehiculo {
 										""";
 			ps = con.prepareStatement(sql);
 			
-			ps.setString(1, "NISSAN");
-			ps.setString(2, "FRONTIER");
-			ps.setInt(3, 2020);
-			ps.setDouble(4, 20000);
-			ps.setString(5, "AZUL");
+			ps.setString(1, "TOYOTA");
+			ps.setString(2, "NEW FORTUNER");
+			ps.setInt(3, 2026);
+			ps.setDouble(4, 28200);
+			ps.setString(5, "NEGRO");
 			ps.setBoolean(6, false);
 			
-			ps.setString(7, "HHH222"); // PLACA
+			ps.setString(7, "THO1234"); // PLACA
 			
 			int filas =ps.executeUpdate();
 			

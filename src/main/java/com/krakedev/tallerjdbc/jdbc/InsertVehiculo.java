@@ -24,12 +24,12 @@ public class InsertVehiculo {
 										""";
 			ps = con.prepareStatement(sql);
 			
-			ps.setString(1, "HHH222");
-			ps.setString(2, "KIA");
-			ps.setString(3, "SONATA");
-			ps.setInt(4, 2025);
-			ps.setDouble(5, 18000.20);
-			ps.setString(6, "VERDE");
+			ps.setString(1, "THO1234");
+			ps.setString(2, "TOYOTA");
+			ps.setString(3, "COROLLA");
+			ps.setInt(4, 2026);
+			ps.setDouble(5, 20000);
+			ps.setString(6, "GRIS");
 			ps.setBoolean(7, true);
 			
 			int filas =ps.executeUpdate();
