@@ -20,4 +20,11 @@ INSERT INTO vehiculos (placa, marca, modelo, anio, precio, color, disponible)
 VALUES('ABC123','CHEVROLET','SAIL',2025,15000,'ROJO',true);
 
 
+--MODIFICAR TABLA PARA AGREGAR CAMPO KILOMETRAJE
+ALTER TABLE vehiculos
+ADD kilometraje INT;
+
+
+
 --DROP TABLE vehiculos;
+select * from vehiculos; 
