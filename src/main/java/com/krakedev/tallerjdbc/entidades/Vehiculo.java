@@ -9,13 +9,14 @@ public class Vehiculo {
 	private double precio;
 	private String color;
 	private boolean disponible;
+	private int kilometraje;
 	
 	//CONSTRUCTORES
 	public Vehiculo() {
 
 	}
 
-	public Vehiculo(String placa, String marca, String modelo, int anio, double precio, String color,
+	public Vehiculo(String placa, String marca, String modelo, int anio, double precio, String color,int kilometraje,
 			boolean disponible) {
 		this.placa = placa;
 		this.marca = marca;
@@ -24,6 +25,7 @@ public class Vehiculo {
 		this.precio = precio;
 		this.color = color;
 		this.disponible = disponible;
+		this.kilometraje=kilometraje;
 	}
 	//METODOS GET Y SET
 	public String getPlaca() {
@@ -81,11 +83,19 @@ public class Vehiculo {
 	public void setDisponible(boolean disponible) {
 		this.disponible = disponible;
 	}
-	//METODO SOBREESCRITO DEL TO STRING
+	
+	public int getKilometraje() {
+		return kilometraje;
+	}
+
+	public void setKilometraje(int kilometraje) {
+		this.kilometraje = kilometraje;
+	}
+	// METODO SOBREESCRITO TOSTRING
 	@Override
 	public String toString() {
 		return "Vehiculo [placa=" + placa + ", marca=" + marca + ", modelo=" + modelo + ", anio=" + anio + ", precio="
-				+ precio + ", color=" + color + ", disponible=" + disponible + "]";
+				+ precio + ", color=" + color + ", disponible=" + disponible + ", kilometraje=" + kilometraje + "]";
 	}
 	
 	

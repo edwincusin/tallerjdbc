@@ -35,8 +35,9 @@ public class SelectVehiculo {
 				double precio= rs.getDouble("precio");
 				String color = rs.getString("color");
 				boolean disponible = rs.getBoolean("disponible");
-				//placa, marca, modelo, anio, precio, color, disponible
-				log.info("PLACA: "+placa+", MARCA: "+marca+", "+", MODELO: "+modelo+", AÑO: "+anio+", PRECIO: "+precio+", COLOR: "+color+", DISPONIBLE: "+disponible);
+				int kilometraje=rs.getInt("kilometraje");
+				//placa, marca, modelo, anio, precio, color, disponible, kilometraje
+				log.info("PLACA: "+placa+", MARCA: "+marca+", "+", MODELO: "+modelo+", AÑO: "+anio+", PRECIO: "+precio+", COLOR: "+color+", DISPONIBLE: "+disponible+", KILOMETRAJE: "+kilometraje);
 			}
 			log.info("LISTA COMPLETA DE VEHICULOS");
 		} catch (Exception e) {

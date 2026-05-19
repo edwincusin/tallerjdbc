@@ -19,18 +19,19 @@ public class InsertVehiculo {
 		try {
 			con = Conexion.getConnection();
 			String sql = """
-					INSERT INTO vehiculos (placa, marca, modelo, anio, precio, color, disponible)
-					VALUES(?,?,?,?,?,?,?);
+					INSERT INTO vehiculos (placa, marca, modelo, anio, precio, color, disponible, kilometraje)
+					VALUES(?,?,?,?,?,?,?,?);
 										""";
 			ps = con.prepareStatement(sql);
 			
-			ps.setString(1, "THO1234");
+			ps.setString(1, "THO1233");
 			ps.setString(2, "TOYOTA");
 			ps.setString(3, "COROLLA");
 			ps.setInt(4, 2026);
 			ps.setDouble(5, 20000);
 			ps.setString(6, "GRIS");
 			ps.setBoolean(7, true);
+			ps.setInt(8, 1);
 			
 			int filas =ps.executeUpdate();
 			
