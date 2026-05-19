@@ -9,11 +9,15 @@ marca VARCHAR(50) NOT NULL,
 modelo VARCHAR(50) NOT NULL,
 anio INT NOT NULL,
 precio DOUBLE PRECISION NOT NULL,
-
 color VARCHAR(30),
 disponible BOOLEAN NOT NULL
 );
 
 
+--INSERT DE PRUEBA
 
-DROP TABLE vehiculos;
+INSERT INTO vehiculos (placa, marca, modelo, anio, precio, color, disponible)
+VALUES('ABC123','CHEVROLET','SAIL',2025,15000,'ROJO',true);
+
+
+--DROP TABLE vehiculos;
