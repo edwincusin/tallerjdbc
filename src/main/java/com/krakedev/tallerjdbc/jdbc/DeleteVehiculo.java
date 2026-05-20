@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 public class DeleteVehiculo {
 	private static Logger log = LoggerFactory.getLogger(DeleteVehiculo.class);
 
-	public static void main(String[] args) {
+	public static boolean eliminar(String placa) {
 		Connection con = null;
 		PreparedStatement ps = null;
 
@@ -22,15 +22,18 @@ public class DeleteVehiculo {
 					""";
 			ps = con.prepareStatement(sql);
 			
-			ps.setString(1, "HHH222"); // PLACA
+			ps.setString(1, placa); // PLACA
 			
 			int filas =ps.executeUpdate();
 			
-			log.info("Fila eliminada : "+filas);
-			log.info("VEHICULO ELIMINADO CON EXITO");
-
+			log.info("N° filas eliminadas : "+filas);
+			log.info("VEHICULO FUE ELIMINADO CON EXITO");
+			
+			return filas>0?true:false;
+			
 		} catch (Exception e) {
 			log.error("Error al eliminar : " + e.getMessage());
+			throw new RuntimeException("ERROR AL ELIMINAR VEHICULO ");
 		} finally {
 			try {
 				if (con != null) {

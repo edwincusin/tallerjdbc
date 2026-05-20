@@ -2,16 +2,21 @@ package com.krakedev.tallerjdbc.jdbc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.krakedev.tallerjdbc.entidades.Vehiculo;
+
 public class UpdateVehiculo {
 
 	private static Logger log = LoggerFactory.getLogger(UpdateVehiculo.class);
 	
-	public static void main(String[] args) {
+	public static boolean modificar(Vehiculo vehiculoNuevo, String placa){
+		
+		
 		Connection con = null;
 		PreparedStatement ps = null;
 
@@ -24,23 +29,26 @@ public class UpdateVehiculo {
 										""";
 			ps = con.prepareStatement(sql);
 			
-			ps.setString(1, "TOYOTA");
-			ps.setString(2, "NEW FORTUNER");
-			ps.setInt(3, 2026);
-			ps.setDouble(4, 28200);
-			ps.setString(5, "NEGRO");
-			ps.setBoolean(6, false);
-			ps.setInt(7, 2);
+			ps.setString(1, vehiculoNuevo.getMarca());
+			ps.setString(2, vehiculoNuevo.getModelo());
+			ps.setInt(3, vehiculoNuevo.getAnio());
+			ps.setDouble(4, vehiculoNuevo.getPrecio());
+			ps.setString(5, vehiculoNuevo.getColor());
+			ps.setBoolean(6, vehiculoNuevo.isDisponible());
+			ps.setInt(7, vehiculoNuevo.getKilometraje());
 			
-			ps.setString(8, "THO1234"); // PLACA
+			ps.setString(8, placa); // PLACA
 			
-			int filas =ps.executeUpdate();
-			
-			log.info("Filas actualizadas : "+filas);
-			log.info("VEHICULO ACTUALIZADO CON EXITO");
+			int filasinsertadas = ps.executeUpdate();
 
+			log.info("SE AGREGO FILAS "+filasinsertadas);
+			log.info("VEHICULO ACTUALIZADO CON EXITO");
+			
+			return filasinsertadas >0 ?true :false;
+			
 		} catch (Exception e) {
 			log.error("Error al ACTUALIZAR : " + e.getMessage());
+			throw new RuntimeException("ERROR AL ACTUALIZAR VEHICULO ");
 		} finally {
 			try {
 				if (con != null) {
